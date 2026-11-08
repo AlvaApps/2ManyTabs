@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Music Window",
+  "version": "1.2",
+  "description": "Open links in, or move tabs to, your dedicated music window.",
+  "permissions": ["contextMenus", "tabs", "storage", "webNavigation"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["main-world.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    }
+  ],
+  "action": { "default_title": "Move this tab to the Music window" },
+  "commands": {
+    "move-tab-to-music": {
+      "suggested_key": { "default": "Alt+Shift+M" },
+      "description": "Move current tab to the Music window"
+    },
+    "toggle-music-window": {
+      "suggested_key": { "default": "Alt+Shift+J" },
+      "description": "Jump to the Music window (press again to jump back)"
+    },
+    "set-music-window": {
+      "description": "Set current window as the Music window"
+    }
+  }
+}
