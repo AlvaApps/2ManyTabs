@@ -63,7 +63,7 @@ chrome.commands.onCommand.addListener(async (command, tab) => {
 // Clicking the toolbar icon moves the current tab.
 chrome.action.onClicked.addListener((tab) => moveTabToMusic(tab));
 
-// ---------- Cmd+Option+click (from content.js) ----------
+// ---------- Option+click (from content.js) ----------
 //
 // For real links, content.js sends the URL directly ("open").
 // For JS-driven clicks (e.g. tweets on X), it sends "arm" on mousedown; the next
